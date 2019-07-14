@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Saci</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_login">loginActivity</string>
+    <string name="login">Login</string>
+    <string name="hint">hint</string>
+    <string name="password">Password</string>
+    <string name="entrar">ENTRAR</string>
+    <string name="entrar_com_biometria">Entrar com Biometria</string>
+    <string name="esqueceu_a_senha">Esqueceu a senha?</string>
+    <string name="criar_conta">Criar conta</string>
 </resources>
