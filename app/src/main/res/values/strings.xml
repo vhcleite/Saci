@@ -9,4 +9,5 @@
     <string name="entrar_com_biometria">Entrar com Biometria</string>
     <string name="esqueceu_a_senha">Esqueceu a senha?</string>
     <string name="criar_conta">Criar conta</string>
+    <string name="title_activity_initial">initialActivity</string>
 </resources>
