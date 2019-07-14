@@ -16,6 +16,16 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
+                android:name=".publicacoesActivity"
+                android:label="@string/title_activity_publicacoes"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+                android:name=".cadastroIncidenteActivity"
+                android:label="@string/title_activity_cadastro_incidente"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
                 android:name=".initialActivity"
                 android:label="@string/title_activity_initial"
                 android:theme="@style/AppTheme.NoActionBar">

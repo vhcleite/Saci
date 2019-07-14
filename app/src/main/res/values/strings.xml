@@ -10,4 +10,20 @@
     <string name="esqueceu_a_senha">Esqueceu a senha?</string>
     <string name="criar_conta">Criar conta</string>
     <string name="title_activity_initial">initialActivity</string>
+    <string name="title_activity_cadastro_incidente">cadastroIncidenteActivity</string>
+    <string name="descri_o">Descrição</string>
+    <string name="t_tulo">Título</string>
+    <string name="salvar">Salvar</string>
+
+    <string-array name="classificacao_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+    <string name="title_activity_publicacoes">publicacoesActivity</string>
 </resources>
