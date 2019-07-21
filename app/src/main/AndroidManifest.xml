@@ -7,6 +7,10 @@
          location permissions for the 'MyLocation' functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
 
     <application
             android:allowBackup="true"
@@ -15,6 +19,20 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
+        <activity
+                android:name=".initialActivity"
+                android:label="@string/title_activity_initial"
+                android:theme="@style/AppTheme.NoActionBar">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+        </activity>
         <activity
                 android:name=".publicacoesActivity"
                 android:label="@string/title_activity_publicacoes"
@@ -23,11 +41,6 @@
         <activity
                 android:name=".cadastroIncidenteActivity"
                 android:label="@string/title_activity_cadastro_incidente"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-                android:name=".initialActivity"
-                android:label="@string/title_activity_initial"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
