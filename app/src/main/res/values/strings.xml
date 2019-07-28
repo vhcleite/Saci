@@ -16,14 +16,14 @@
     <string name="salvar">Salvar</string>
 
     <string-array name="classificacao_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>Enchente</item>
+        <item>Queda de Árvore</item>
+        <item>Queda de Poste</item>
+        <item>Acidente de carro</item>
+        <item>Assalto</item>
+        <item>Quebra de barragem</item>
+        <item>Vazamento de produtos Químicos</item>
+        <item>Falta de energia</item>
     </string-array>
     <string name="title_activity_publicacoes">publicacoesActivity</string>
 </resources>

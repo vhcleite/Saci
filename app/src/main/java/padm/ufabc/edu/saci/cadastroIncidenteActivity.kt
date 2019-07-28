@@ -15,13 +15,14 @@ class cadastroIncidenteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_cadastro_incidente)
         setSupportActionBar(toolbar)
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner_classificacao_incidente)
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter <CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.classificacao_array, android.R.layout.simple_spinner_item)
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter)
+        val spinner = findViewById<Spinner>(R.id.spinner_classificacao_incidente)
+
+        spinner.adapter = ArrayAdapter.createFromResource(this, R.array.classificacao_array, android.R.layout.simple_spinner_item)
+
+//        // Specify the layout to use when the list of choices appears
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//        // Apply the adapter to the spinner
+//        spinner.setAdapter(adapter)
 
     }
 
