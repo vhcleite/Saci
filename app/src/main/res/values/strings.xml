@@ -26,4 +26,6 @@
         <item>Falta de energia</item>
     </string-array>
     <string name="title_activity_publicacoes">publicacoesActivity</string>
+    <string name="my_location_name">Me</string>
+    <string name="edit_text_hint_message">Pesquise uma localização</string>
 </resources>

@@ -3,9 +3,15 @@ package padm.ufabc.edu.saci
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import android.location.Address
+import android.location.Geocoder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
+import android.view.inputmethod.EditorInfo
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -29,15 +35,53 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private var mPermissionsLocationGranted = false
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
+    private lateinit var mSearchText: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
+
+        mSearchText = findViewById(R.id.map_search_EditText)
         getLocationPermission()
+    }
+
+    private fun init() {
+        Log.d(TAG, "init: initializing")
+        mSearchText.setOnEditorActionListener(TextView.OnEditorActionListener { textView, actionId, event ->
+
+            if(actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_DONE
+                || event.action == KeyEvent.ACTION_DOWN || event.action == KeyEvent.KEYCODE_ENTER) {
+                geoLocate()
+            }
+            false
+
+        })
+    }
+
+    private fun geoLocate() {
+        Log.d(TAG, "geoLocate: geoLocating")
+        val searchString = mSearchText.text.toString()
+        val geocoder = Geocoder(this)
+        val list = geocoder.getFromLocationName(searchString, 1)
+
+        if(list.size > 0) {
+            val address = list.get(0)
+            Log.d(TAG, "geoLocate: result found: " + address.toString())
+
+            moveCamera(LatLng(address.latitude, address.longitude), DEFAULT_ZOOM)
+
+        } else {
+            Log.d(TAG, "geoLocate: no results for search: " + searchString)
+            Toast.makeText(this, "No results", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun moveCamera(latlong: LatLng, zoom: Float) {
         Log.d(TAG, "moveCamera: moving camera to: lat: " + latlong.latitude + " long: " + latlong.longitude)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlong, zoom))
+
+        val markerOptions = MarkerOptions().position(latlong).title("Location")
+        mMap.addMarker(markerOptions)
     }
 
     private fun getDeviceLocation() {
@@ -87,11 +131,13 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             getDeviceLocation()
             mMap.isMyLocationEnabled = true
         } else {
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+            // Add a marker in Sydney and move the camera
+            val sydney = LatLng(-34.0, 151.0)
+            mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
         }
+
+        init()
     }
 
     private fun getLocationPermission() {
