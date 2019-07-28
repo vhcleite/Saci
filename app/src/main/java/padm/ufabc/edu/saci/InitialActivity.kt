@@ -26,11 +26,8 @@ class InitialActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        val btnOpenMap = findViewById<Button>(R.id.open_map_button)
-        btnOpenMap.setOnClickListener{
             val intent = Intent(this, MapActivity::class.java)
             startActivity(intent);
-        }
     }
 
     public fun isServicesOk(): Boolean {
