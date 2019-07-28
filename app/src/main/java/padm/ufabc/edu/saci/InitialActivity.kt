@@ -2,19 +2,14 @@ package padm.ufabc.edu.saci
 
 import android.content.Intent
 import android.os.Bundle
-import android.service.autofill.OnClickAction
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 
-import kotlinx.android.synthetic.main.activity_initial.*
-
-class initialActivity : AppCompatActivity() {
+class InitialActivity : AppCompatActivity() {
 
     val TAG = "InitialActivity"
     val ERROR_DIALOG_REQUEST = 9001
@@ -33,7 +28,7 @@ class initialActivity : AppCompatActivity() {
     private fun init() {
         val btnOpenMap = findViewById<Button>(R.id.open_map_button)
         btnOpenMap.setOnClickListener{
-            val intent = Intent(this, MapsActivity::class.java)
+            val intent = Intent(this, MapActivity::class.java)
             startActivity(intent);
         }
     }
