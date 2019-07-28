@@ -32,12 +32,10 @@ class initialActivity : AppCompatActivity() {
 
     private fun init() {
         val btnOpenMap = findViewById<Button>(R.id.open_map_button)
-        btnOpenMap.setOnClickListener(View.OnClickListener {
-            @Override
-            fun OnClickAction(view: View) {
-                startActivity(Intent(this@initialActivity, MapsActivity::class.java))
-            }
-        })
+        btnOpenMap.setOnClickListener{
+            val intent = Intent(this, MapsActivity::class.java)
+            startActivity(intent);
+        }
     }
 
     public fun isServicesOk(): Boolean {
