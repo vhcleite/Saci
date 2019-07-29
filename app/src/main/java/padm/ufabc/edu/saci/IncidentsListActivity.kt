@@ -1,9 +1,11 @@
 package padm.ufabc.edu.saci
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
@@ -27,6 +29,10 @@ class IncidentsListActivity : AppCompatActivity() {
 
         val listView = findViewById<ListView>(R.id.publications_list)
         listView.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, incidents)
+        listView.setOnItemClickListener(AdapterView.OnItemClickListener() {adapterView, view, i, l ->
+            val intent = Intent(this, IncidentVisualizationActivityActivity::class.java)
+            startActivity(intent)
+        })
 
     }
 
