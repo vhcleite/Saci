@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+    <TextView
+            android:text="Classificação: Enchente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/classification" android:textSize="16sp" android:textColor="#020000"/>
+
+    <TextView
+            android:text="Descrição: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/description"/>
+
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="80pt" app:srcCompat="@drawable/enchente"/>
+    <FrameLayout android:layout_width="match_parent"
+                 android:layout_height="30pt">
+
+    </FrameLayout>
+
+    <TextView
+            android:text="Comentários"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/comments_title" android:textSize="16sp" android:textColor="#6B0505"/>
+
+    <TextView
+            android:text="Nenhum comentário até o momento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/comments" android:textSize="12sp" android:textColor="#747474"/>
+
+</LinearLayout>
