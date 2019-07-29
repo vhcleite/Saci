@@ -18,7 +18,15 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+
+        <activity
+                android:name=".showProfileActivity"
+                android:label="@string/title_activity_show_profile"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
         <activity android:name=".IncidentVisualizationActivityActivity">
+
         </activity>
         <activity
                 android:name=".InitialActivity"
