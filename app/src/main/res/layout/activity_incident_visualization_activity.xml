@@ -19,10 +19,21 @@
 
     <ImageView android:layout_width="match_parent"
                android:layout_height="80pt" app:srcCompat="@drawable/enchente"/>
-    <FrameLayout android:layout_width="match_parent"
-                 android:layout_height="30pt">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center">
 
-    </FrameLayout>
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+        android:text="Incidente Presente"/>
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Incidente Passado"/>
+
+    </LinearLayout>
 
     <TextView
             android:text="Comentários"
