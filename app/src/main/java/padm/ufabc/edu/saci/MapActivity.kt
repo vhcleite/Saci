@@ -2,17 +2,21 @@ package padm.ufabc.edu.saci
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -22,6 +26,7 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.material.floatingactionbutton.FloatingActionButton as FloatingActionButton
 
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -36,13 +41,22 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     private lateinit var mSearchText: EditText
+    private lateinit var novoIncidente: FloatingActionButton
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
 
         mSearchText = findViewById(R.id.map_search_EditText)
         getLocationPermission()
+
+        novoIncidente = findViewById<FloatingActionButton>(R.id.IncidenteInsertButton)
+
+        novoIncidente.setOnClickListener {
+            val cadastroIncidenteActivityIntent = Intent(applicationContext, cadastroIncidenteActivity::class.java)
+            startActivity(cadastroIncidenteActivityIntent)
+        }
     }
 
     private fun init() {
