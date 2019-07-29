@@ -71,17 +71,13 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
         return when (id) {
             R.id.my_publications -> {
-                Toast.makeText(
-                    this, resources.getString(R.string.my_publications),
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this, resources.getString(R.string.my_publications),Toast.LENGTH_SHORT).show()
+                intent = Intent(this, IncidentsListActivity::class.java)
+                startActivity(intent)
                 true
             }
             R.id.exit_app -> {
-                Toast.makeText(
-                    this, resources.getString(R.string.exit_app),
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this, resources.getString(R.string.exit_app),Toast.LENGTH_SHORT).show()
                 true
             }
 
