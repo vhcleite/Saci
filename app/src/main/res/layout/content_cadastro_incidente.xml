@@ -34,7 +34,7 @@
             android:layout_width="181dp"
             android:layout_height="52dp"
             android:id="@+id/button_login"
-            android:backgroundTint="@android:color/holo_blue_dark"
+            android:backgroundTint="@android:color/holo_red_dark"
             android:textColor="@android:color/white"
             android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="8dp" android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
