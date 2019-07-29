@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,12 +24,9 @@ class IncidentsListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_incident_list)
-        setSupportActionBar(toolbar)
 
-        recyclerView = findViewById<RecyclerView>(R.id.publications_list)
-
-        recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        recyclerView.adapter = IncidentListItemAdapter(incidents)
+        val listView = findViewById<ListView>(R.id.publications_list)
+        listView.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, incidents)
 
     }
 
@@ -45,7 +44,7 @@ class IncidentListItemAdapter(private val incidents: Array<String>) : RecyclerVi
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.incidentTitleTextView.text = incidents[position]
+        holder?.incidentTitleTextView.text = incidents[position]
     }
 
 

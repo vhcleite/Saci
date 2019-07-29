@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -9,6 +9,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
             android:layout_height="wrap_content"
+            android:id="@+id/app_bar_incident_list"
             android:layout_width="match_parent"
             android:theme="@style/AppTheme.AppBarOverlay">
 
@@ -21,12 +22,13 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
             android:layout_width="match_parent"
-            android:layout_height="598dp"
-            android:scrollbars="vertical"
+            android:layout_height="match_parent"
+            android:layout_marginTop="25pt"
+            android:layout_marginLeft="10pt"
             android:id="@+id/publications_list">
 
-    </androidx.recyclerview.widget.RecyclerView>
+    </ListView>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>
