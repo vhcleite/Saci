@@ -2,7 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context=".MapActivity">
+      tools:context=".MapActivity"
+        app:theme="@style/CustomToolbar">
 
     <item android:id="@+id/my_publications"
           android:title="@string/my_publications"

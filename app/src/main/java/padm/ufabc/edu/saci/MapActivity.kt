@@ -44,17 +44,13 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
 
-//        // TODO: colocar verificacao de API
-        setActionBar(findViewById<Toolbar>(R.id.map_activity_tool_bar))
-//        setSupportActionBar(findViewById(R.id.map_activity_tool_bar))
-
         mSearchText = findViewById(R.id.map_search_EditText)
         getLocationPermission()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
-        return super.onCreateOptionsMenu(menu)
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
