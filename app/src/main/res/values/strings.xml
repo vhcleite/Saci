@@ -35,4 +35,5 @@
     <string name="n_mero_de_incidentes_reportados">Número de incidentes reportados:</string>
     <string name="numberincidentes"><![CDATA[<NumberIncidentes>]]></string>
     <string name="userselfpicture">userselfpicture</string>
+    <string name="my_profile">Meu perfil</string>
 </resources>

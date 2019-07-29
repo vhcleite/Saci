@@ -78,6 +78,14 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             }
             R.id.exit_app -> {
                 Toast.makeText(this, resources.getString(R.string.exit_app),Toast.LENGTH_SHORT).show()
+                intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.my_profile -> {
+                Toast.makeText(this, resources.getString(R.string.my_profile),Toast.LENGTH_SHORT).show()
+                intent = Intent(this, showProfileActivity::class.java)
+                startActivity(intent)
                 true
             }
 
