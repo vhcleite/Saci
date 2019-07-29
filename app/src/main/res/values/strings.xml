@@ -28,4 +28,6 @@
     <string name="title_activity_publicacoes">publicacoesActivity</string>
     <string name="my_location_name">Me</string>
     <string name="edit_text_hint_message">Pesquise uma localização</string>
+    <string name="my_publications">Minhas publicações</string>
+    <string name="exit_app">Sair</string>
 </resources>
