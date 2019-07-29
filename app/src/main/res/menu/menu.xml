@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".MapActivity"
+        app:theme="@style/CustomToolbar">
+
+    <item android:id="@+id/my_publications"
+          android:title="@string/my_publications"
+          app:showAsAction="never"
+          android:orderInCategory="100">
+    </item>
+
+    <item android:id="@+id/exit_app"
+          android:title="@string/exit_app"
+          app:showAsAction="never"
+          android:orderInCategory="100">
+    </item>
+
+</menu>
