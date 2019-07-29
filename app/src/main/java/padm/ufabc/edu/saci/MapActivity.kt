@@ -8,11 +8,12 @@ import android.location.Geocoder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.KeyEvent
+import android.view.*
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -22,6 +23,7 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.OnCompleteListener
+import padm.ufabc.edu.saci.R.id.map_activity_tool_bar
 
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -37,17 +39,50 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mSearchText: EditText
 
+    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
+
+//        // TODO: colocar verificacao de API
+        setActionBar(findViewById<Toolbar>(R.id.map_activity_tool_bar))
+//        setSupportActionBar(findViewById(R.id.map_activity_tool_bar))
 
         mSearchText = findViewById(R.id.map_search_EditText)
         getLocationPermission()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+
+        return when (id) {
+            R.id.my_publications -> {
+                Toast.makeText(
+                    this, resources.getString(R.string.my_publications),
+                    Toast.LENGTH_SHORT
+                ).show()
+                true
+            }
+            R.id.exit_app -> {
+                Toast.makeText(
+                    this, resources.getString(R.string.exit_app),
+                    Toast.LENGTH_SHORT
+                ).show()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun init() {
         Log.d(TAG, "init: initializing")
-        mSearchText.setOnEditorActionListener(TextView.OnEditorActionListener { textView, actionId, event ->
+        mSearchText.setOnEditorActionListener(TextView.OnEditorActionListener { _, actionId, event ->
 
             if(actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_DONE
                 || event.action == KeyEvent.ACTION_DOWN || event.action == KeyEvent.KEYCODE_ENTER) {
