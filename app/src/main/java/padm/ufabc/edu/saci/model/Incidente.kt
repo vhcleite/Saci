@@ -2,7 +2,7 @@ package padm.ufabc.edu.saci.model
 
 import java.util.*
 
-class incidente {
+class Incidente {
     var titulo: String? = null
     var latitude: Double? = null
     var longitude: Double? = null
