@@ -50,4 +50,8 @@ class IncidenteDAOClass private constructor() {
         return incidentes[pos]
     }
 
+    fun getItems(): MutableList<Incidente> {
+        return incidentes
+    }
+
 }

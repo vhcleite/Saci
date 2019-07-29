@@ -4,7 +4,6 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.location.Address
 import android.location.Geocoder
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -12,12 +11,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.view.inputmethod.EditorInfo
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import android.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -25,11 +22,13 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.*
 
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.tasks.OnCompleteListener
+import padm.ufabc.edu.saci.model.IncidenteDAOClass
 import com.google.android.material.floatingactionbutton.FloatingActionButton as FloatingActionButton
 
-class MapActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapActivity : AppCompatActivity(), OnMapReadyCallback,GoogleMap.OnMarkerClickListener {
+
 
     private val DEFAULT_ZOOM = 15f
     private lateinit var mMap: GoogleMap
@@ -132,6 +131,31 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(markerOptions)
     }
 
+    private fun listIncidentes(){
+        val incidentes = IncidenteDAOClass.instance
+        incidentes.getItems().forEach{
+            inc ->
+            val incPosition = LatLng(inc.latitude!!, inc.longitude!!)
+            val marker = MarkerOptions().position(incPosition).title(inc.titulo).anchor(0.5f,0.5f)
+
+            mMap.addMarker(marker)
+            mMap.setOnMarkerClickListener(this)
+        }
+    }
+
+    //temporario pra poder levar à atividade de publicação
+    override fun onMarkerClick(p0: Marker?): Boolean {
+        val markerIntent = Intent(applicationContext,IncidentVisualizationActivityActivity::class.java)
+        startActivity(markerIntent)
+        return true
+    }
+
+    private fun defaultLocation(){
+        val ufabc = LatLng(-23.644225, -46.528738)
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ufabc,12.0f))
+        listIncidentes()
+    }
+
     private fun getDeviceLocation() {
         Log.d(TAG, "getDeviceLocation: getting current device location")
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
@@ -143,6 +167,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                         Log.d(TAG, "getDeviceLocation: device location successfully picks up")
                         moveCamera(LatLng(location.latitude, location.longitude), DEFAULT_ZOOM)
                     } else {
+                        defaultLocation()
                         Toast.makeText(this, "Couldn't catch current location", Toast.LENGTH_SHORT).show()
                     }
                 }
