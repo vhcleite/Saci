@@ -30,4 +30,9 @@
     <string name="edit_text_hint_message">Pesquise uma localização</string>
     <string name="my_publications">Minhas publicações</string>
     <string name="exit_app">Sair</string>
+    <string name="title_activity_show_profile">showProfileActivity</string>
+    <string name="yourusername"><![CDATA[<YourUsername>]]></string>
+    <string name="n_mero_de_incidentes_reportados">Número de incidentes reportados:</string>
+    <string name="numberincidentes"><![CDATA[<NumberIncidentes>]]></string>
+    <string name="userselfpicture">userselfpicture</string>
 </resources>
